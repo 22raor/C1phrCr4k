@@ -33,6 +33,7 @@ import javax.swing.UIManager;
 
 import ciphr.ciphers.A1Z26;
 import ciphr.ciphers.Atbash;
+import ciphr.ciphers.Caesar;
 import ciphr.ciphers.Vigenere;
 
 public class Gui {
@@ -92,7 +93,25 @@ public class Gui {
 	}
 
 	public void caesar() {
+		JPanel pane = new JPanel();
+		JTextField message = new JTextField(10);
+		JTextField shift = new JTextField(10);
+		pane.add(new JLabel("Message: "));
+		pane.add(message);
+		pane.add(new JLabel("Shift: "));
+		pane.add(shift);
 
+		Object[] options1 = { "Encrypt", "Decrypt" };
+		int a = JOptionPane.showOptionDialog(new JFrame(), pane, "Caesar Cipher", JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.PLAIN_MESSAGE, null, options1, null);
+
+		if (a == 0) {
+			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n"
+					+ Caesar.encrypt(message.getText(), Integer.parseInt(shift.getText())));
+		} else {
+			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n"
+					+ Caesar.decrypt(message.getText(), Integer.parseInt(shift.getText())));
+		}
 	}
 
 	public void vigenere() {
