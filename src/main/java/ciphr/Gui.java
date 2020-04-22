@@ -33,6 +33,7 @@ import javax.swing.UIManager;
 
 import ciphr.ciphers.A1Z26;
 import ciphr.ciphers.Atbash;
+import ciphr.ciphers.Baconian;
 import ciphr.ciphers.Caesar;
 import ciphr.ciphers.Vigenere;
 
@@ -88,8 +89,19 @@ public class Gui {
 	}
 
 	public void baconian() {
-		JOptionPane.showOptionDialog(null, "Message: ", "Baconian Cipher", JOptionPane.YES_NO_OPTION,
+		JPanel pane = new JPanel();
+		JTextField message = new JTextField(10);
+		pane.add(new JLabel("Message: "));
+		pane.add(message);
+
+		int result = JOptionPane.showOptionDialog(null, "Message: ", "Baconian Cipher", JOptionPane.YES_NO_OPTION,
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
+
+		if (result == 0) {
+			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+		} else {
+			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+		}
 	}
 
 	public void caesar() {
@@ -101,9 +113,8 @@ public class Gui {
 		pane.add(new JLabel("Shift: "));
 		pane.add(shift);
 
-		Object[] options1 = { "Encrypt", "Decrypt" };
 		int a = JOptionPane.showOptionDialog(new JFrame(), pane, "Caesar Cipher", JOptionPane.YES_NO_CANCEL_OPTION,
-				JOptionPane.PLAIN_MESSAGE, null, options1, null);
+				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (a == 0) {
 			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n"
