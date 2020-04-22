@@ -1,4 +1,4 @@
-package ciphr2;
+package ciphr;
 
 public class Main {
 
