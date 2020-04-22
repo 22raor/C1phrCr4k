@@ -8,12 +8,5 @@
 	<name>C1phrCr4k</name>
 	<description>Utility for encrypting and decrypting popular ciphers</description>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx</artifactId>
-			<version>15-ea+4</version>
-			<type>pom</type>
-		</dependency>
 	</dependencies>
 </project>
