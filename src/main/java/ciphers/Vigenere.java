@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  * 
  */
-package cipher;
+package ciphers;
 
 /**
  * This class provides the necessary methods to encrypt and decrypt messages
