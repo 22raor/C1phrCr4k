@@ -39,7 +39,7 @@ import ciphr.ciphers.Vigenere;
 
 public class Gui {
 
-	private String[] options = new String[] { "Encrypt", "Decrypt" };
+	private static final String[] options = new String[] { "Encrypt", "Decrypt" };
 
 	public Gui() {
 		try {
@@ -94,7 +94,7 @@ public class Gui {
 		pane.add(new JLabel("Message: "));
 		pane.add(message);
 
-		int result = JOptionPane.showOptionDialog(null, "Message: ", "Baconian Cipher", JOptionPane.YES_NO_OPTION,
+		int result = JOptionPane.showOptionDialog(null, pane, "Baconian Cipher", JOptionPane.YES_NO_OPTION,
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (result == 0) {
