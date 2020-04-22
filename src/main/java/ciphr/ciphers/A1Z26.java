@@ -37,15 +37,23 @@ public class A1Z26 {
 	 * @return encoded string
 	 */
 	public static String encode(String message) {
-		return message.toUpperCase().chars().mapToObj(c -> (char) c).map(c -> 1 + alphabet.indexOf(c))
-				.map(c ->  c.toString() + "-").collect(Collectors.joining()).replaceFirst(".$","");
+		return message.toUpperCase().chars().mapToObj(c -> (char) c)
+				.map(c -> !alphabet.contains(c + "") ? c + "" : (1 + alphabet.indexOf(c))).map(c -> c.toString() + "-")
+				.collect(Collectors.joining()).replaceFirst(".$", "");
 	}
 
 	public static String decode(String message) {
 		String a = "";
-		for(String b: message.split("-")) {
-			a+= alphabet.charAt(Integer.parseInt(b) -1);
+		for (String b : message.split("-")) {
+
+			try {
+				a += alphabet.charAt(Integer.parseInt(b) - 1);
+			} catch (Exception e) {
+				a += b;
+			}
+
 		}
+
 		return a;
 
 	}
