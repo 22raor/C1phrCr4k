@@ -53,6 +53,7 @@ public class Baconian {
 	 * Encrypts the given message using the Baconian cipher.
 	 * 
 	 * @param message the message to encrypt
+	 * @return the encrypted message
 	 */
 	public static String encrypt(String message) {
 		message = message.toLowerCase().replaceAll("\\p{Punct}|\\s", "");
@@ -76,6 +77,7 @@ public class Baconian {
 	 * Decrypts the given message using the Baconian cipher.
 	 * 
 	 * @param message the message to decrypt
+	 * @return the decrypted message
 	 */
 	public static String decrypt(String message) {
 		message = message.toLowerCase().replaceAll("\\p{Punct}|\\s", "");
