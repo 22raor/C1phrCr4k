@@ -22,15 +22,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  * 
  */
-package ciphr;
+package ciphers;
 
-import ciphers.A1Z26;
-import ciphers.Atbash;
+import java.util.stream.Collectors;
 
-public class Main {
+public class Atbash {
+	private final static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-	public static void main(String[] args) {
-
+	/**
+	 * Encodes/decodes a given message with the {@link Atbash} cipher
+	 * 
+	 * @param message to be encoded
+	 * @return encoded string
+	 */
+	public static String translate(String message) {
+		return message.chars().mapToObj(c -> (char) c)
+				.map(c -> Character.isLowerCase(c)
+						? Character.toLowerCase(alphabet.charAt(25 - alphabet.indexOf(Character.toUpperCase(c))))
+						: alphabet.charAt(25 - alphabet.indexOf(Character.toUpperCase(c))))
+				.map(c -> c.toString()).collect(Collectors.joining());
 	}
 
 }
