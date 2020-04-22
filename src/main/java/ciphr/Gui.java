@@ -55,24 +55,26 @@ public class Gui {
 		Object[] ciphers = { "Atbash", "A1Z26", "Baconian", "Caesar", "Vigenere" };
 		String ciphr = (String) JOptionPane.showInputDialog(null, "Choose a cipher", "Cipher Selector",
 				JOptionPane.QUESTION_MESSAGE, null, ciphers, ciphers[0]);
+		
+		if (ciphr != null) {
+			switch (ciphr) {
+			case "Atbash":
+				atbash();
+				break;
+			case "A1Z26":
+				a1z26();
+				break;
+			case "Baconian":
+				baconian();
+				break;
+			case "Caesar":
+				caesar();
+				break;
+			case "Vigenere":
+				vigenere();
+				break;
 
-		switch (ciphr) {
-		case "Atbash":
-			atbash();
-			break;
-		case "A1Z26":
-			a1z26();
-			break;
-		case "Baconian":
-			baconian();
-			break;
-		case "Caesar":
-			caesar();
-			break;
-		case "Vigenere":
-			vigenere();
-			break;
-
+			}
 		}
 
 	}
@@ -87,9 +89,17 @@ public class Gui {
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (result == 0) {
-			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + Atbash.translate(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + Atbash.translate(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message.");
+			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + Atbash.translate(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + Atbash.translate(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message.");
+			}
 		}
 	}
 
@@ -103,9 +113,17 @@ public class Gui {
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (result == 0) {
-			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + A1Z26.encode(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + A1Z26.encode(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message.");
+			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + A1Z26.decode(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + A1Z26.decode(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid A1Z26-encrypted message.");
+			}
 		}
 	}
 
@@ -119,9 +137,18 @@ public class Gui {
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (result == 0) {
-			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message.");
+			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+			try {
+				JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n" + Baconian.encrypt(message.getText()));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,
+						"Please input a valid Baconian-encrypted message with no spaces or punctuation.");
+			}
 		}
 	}
 
@@ -138,11 +165,19 @@ public class Gui {
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (a == 0) {
-			JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n"
-					+ Caesar.encrypt(message.getText(), Integer.parseInt(shift.getText())));
+			try {
+				JOptionPane.showMessageDialog(null, "Encrypted Message:\r\n\r\n"
+						+ Caesar.encrypt(message.getText(), Integer.parseInt(shift.getText())));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message and shift.");
+			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n"
-					+ Caesar.decrypt(message.getText(), Integer.parseInt(shift.getText())));
+			try {
+				JOptionPane.showMessageDialog(null, "Decrypted Message:\r\n\r\n"
+						+ Caesar.decrypt(message.getText(), Integer.parseInt(shift.getText())));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message and shift.");
+			}
 		}
 	}
 
@@ -159,11 +194,19 @@ public class Gui {
 				JOptionPane.PLAIN_MESSAGE, null, options, null);
 
 		if (a == 0) {
-			JOptionPane.showMessageDialog(null,
-					"Encrypted Message:\r\n\r\n" + Vigenere.encrypt(message.getText(), key.getText(), true));
+			try {
+				JOptionPane.showMessageDialog(null,
+						"Encrypted Message:\r\n\r\n" + Vigenere.encrypt(message.getText(), key.getText(), true));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message and key.");
+			}
 		} else {
-			JOptionPane.showMessageDialog(null,
-					"Decrypted Message:\r\n\r\n" + Vigenere.decrypt(message.getText(), key.getText(), true));
+			try {
+				JOptionPane.showMessageDialog(null,
+						"Decrypted Message:\r\n\r\n" + Vigenere.decrypt(message.getText(), key.getText(), true));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Please input a valid message and key.");
+			}
 		}
 
 	}
