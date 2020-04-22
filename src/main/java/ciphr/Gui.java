@@ -48,10 +48,31 @@ public class Gui {
 		}
 
 		runDropDown();
-		atbash();
 	}
 
 	public void runDropDown() {
+		Object[] ciphers = { "Atbash", "A1Z26", "Baconian", "Caesar", "Vigenere" };
+		String ciphr = (String) JOptionPane.showInputDialog(null, "Choose a cipher", "Cipher Selector",
+				JOptionPane.QUESTION_MESSAGE, null, ciphers, ciphers[0]);
+
+		switch (ciphr) {
+		case "Atbash":
+			atbash();
+			break;
+		case "A1Z26":
+			a1z26();
+			break;
+		case "Baconian":
+			baconian();
+			break;
+		case "Caesar":
+			caesar();
+			break;
+		case "Vigenere":
+			vigenere();
+			break;
+
+		}
 
 	}
 
