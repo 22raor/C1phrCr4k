@@ -23,7 +23,7 @@ SOFTWARE.
  * 
  */
 
-package ciphers;
+package ciphr.ciphers;
 
 import java.util.stream.Collectors;
 

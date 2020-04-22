@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  * 
  */
-package ciphers;
+package ciphr.ciphers;
 
 import java.util.stream.Collectors;
 

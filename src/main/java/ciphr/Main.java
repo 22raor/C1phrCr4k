@@ -24,8 +24,8 @@ SOFTWARE.
  */
 package ciphr;
 
-import ciphers.A1Z26;
-import ciphers.Atbash;
+import ciphr.ciphers.A1Z26;
+import ciphr.ciphers.Atbash;
 
 public class Main {
 

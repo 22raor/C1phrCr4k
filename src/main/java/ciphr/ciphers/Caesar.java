@@ -22,7 +22,7 @@
  * SOFTWARE.
  * 
  */
-package ciphers;
+package ciphr.ciphers;
 
 /**
  * This class allows you to encrypt and decrypt messages using a Caesar cipher
