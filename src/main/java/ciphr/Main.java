@@ -30,7 +30,8 @@ import ciphers.Atbash;
 public class Main {
 
 	public static void main(String[] args) {
-
+		System.out.println(A1Z26.encode("aba"));
+		System.out.println(A1Z26.decode("1-2-1"));
 	}
 
 }

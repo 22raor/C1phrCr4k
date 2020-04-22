@@ -38,12 +38,15 @@ public class A1Z26 {
 	 */
 	public static String encode(String message) {
 		return message.toUpperCase().chars().mapToObj(c -> (char) c).map(c -> 1 + alphabet.indexOf(c))
-				.map(c -> c.toString()).collect(Collectors.joining());
+				.map(c ->  c.toString() + "-").collect(Collectors.joining()).replaceFirst(".$","");
 	}
 
 	public static String decode(String message) {
-		return message.chars().mapToObj(c -> (char) c).map(c -> alphabet.charAt(-1 + Integer.parseInt(c + "")))
-				.map(c -> c.toString()).collect(Collectors.joining());
+		String a = "";
+		for(String b: message.split("-")) {
+			a+= alphabet.charAt(Integer.parseInt(b) -1);
+		}
+		return a;
 
 	}
 
