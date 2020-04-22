@@ -24,20 +24,27 @@ SOFTWARE.
  */
 
 package ciphers;
+
+import java.util.stream.Collectors;
+
 public class A1Z26 {
-	private final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
+	private final static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 	/**
 	 * Encodes a given message with the {@link A1Z26} cipher
+	 * 
 	 * @param message to be encoded
 	 * @return encoded string
 	 */
-	public String encode(String message) {
-		
-	//	message.stream()
-	
-		
+	public static String encode(String message) {
+		return message.toUpperCase().chars().mapToObj(c -> (char) c).map(c -> 1 + alphabet.indexOf(c))
+				.map(c -> c.toString()).collect(Collectors.joining());
 	}
-	
-	
+
+	public static String decode(String message) {
+		return message.chars().mapToObj(c -> (char) c).map(c -> alphabet.charAt(-1 + Integer.parseInt(c + "")))
+				.map(c -> c.toString()).collect(Collectors.joining());
+
+	}
+
 }
