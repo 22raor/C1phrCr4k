@@ -1,8 +1,12 @@
+
 # C1phrCr4k
 C1phrCr4k is a simple Java GUI for encrypting and decrypting popular ciphers.
+[Latest Release](https://github.com/22raor/C1phrCr4k/releases)
 
 ## Usage
+If you are using the executable from the release, just run the program. If you are running the project files, follow these steps:
 In src/main/java, there is a Main class. Running the main method inside this class will launch the GUI, which prompts you to select one of the available ciphers in a dropdown menu. After selecting one and clicking "OK", you will be prompted to enter your message and any other necessary information to encrypt/decrypt using the chosen cipher.
+
 
 The current ciphers are:
 
